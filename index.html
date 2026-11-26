@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasidul Islam | Portfolio</title>
+<style>
+:root{
+ --bg:#080d18;
+ --panel:#111a2b;
+ --white:#f7f8fc;
+ --muted:#a3aec2;
+ --accent:#9da9ce;
+ --orange:#f86d09;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ background:var(--bg);color:var(--white);
+ font-family:Arial,Helvetica,sans-serif;
+ line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+header{
+ position:sticky;top:0;z-index:20;
+ background:#080d18ed;
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid #ffffff12;
+ padding:18px 7%;
+ display:flex;justify-content:space-between;
+ align-items:center;
+}
+.logo{font-weight:800;font-size:21px;letter-spacing:2px}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:25px}
+nav a{font-size:13px;color:var(--muted)}
+nav a:hover{color:var(--orange)}
+.menu{display:none;background:none;color:white;border:0;font-size:25px}
+.hero{
+ min-height:85vh;padding:100px 9%;
+ display:flex;align-items:center;
+ justify-content:space-between;gap:50px;
+ background:radial-gradient(ellipse at 80% 40%,#25304b55,transparent 55%);
+}
+.eyebrow{color:var(--orange);letter-spacing:4px;font-size:12px;font-weight:bold}
+.hero h1{
+ font-size:clamp(48px,8vw,90px);
+ line-height:1.08;margin:22px 0;
+ letter-spacing:-3px;
+}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);max-width:520px;font-size:16px}
+.buttons{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
+.btn{
+ padding:13px 24px;border-radius:5px;
+ background:var(--orange);color:white;
+ font-weight:bold;font-size:13px;
+ display:inline-block;
+}
+.btn.outline{background:transparent;border:1px solid #ffffff55}
+.btn:hover{transform:translateY(-3px)}
+.hero-art{
+ width:290px;height:350px;
+ border-radius:150px 150px 18px 18px;
+ background:linear-gradient(145deg,#35415f,#111a2b);
+ border:1px solid #9da9ce66;
+ display:flex;align-items:center;justify-content:center;
+ flex-shrink:0;position:relative;
+}
+.hero-art strong{font-size:75px;color:var(--accent);letter-spacing:-8px}
+.hero-art:after{
+ content:"RASIDUL ISLAM";
+ position:absolute;bottom:25px;
+ font-size:10px;letter-spacing:4px;color:#fff9;
+}
+section{padding:90px 9%}
+.section-head{margin-bottom:40px}
+.section-head small{color:var(--orange);letter-spacing:3px}
+.section-head h2{font-size:38px;margin-top:10px}
+.section-head h2 span{color:var(--accent)}
+.about-grid{
+ display:grid;grid-template-columns:1fr 1fr;gap:45px;
+ align-items:center;
+}
+.about-text{color:var(--muted)}
+.info{
+ background:var(--panel);padding:28px;
+ border:1px solid #ffffff15;border-radius:12px;
+}
+.info div{padding:12px 0;border-bottom:1px solid #ffffff12}
+.info div:last-child{border:0}
+.info b{color:var(--accent)}
+.skills-grid,.project-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.skill,.project{
+ padding:28px;background:var(--panel);
+ border:1px solid #ffffff12;border-radius:10px;
+ transition:.3s;
+}
+.skill:hover,.project:hover{
+ transform:translateY(-6px);border-color:var(--orange);
+}
+.skill h3,.project h3{color:var(--accent);margin-bottom:10px}
+.skill p,.project p{font-size:14px;color:var(--muted)}
+.project-number{font-size:32px;color:var(--orange);margin-bottom:15px}
+.contact-box{
+ background:linear-gradient(130deg,#17233a,#111a2b);
+ padding:45px;border-radius:14px;
+ text-align:center;border:1px solid #ffffff15;
+}
+.contact-box h2{font-size:36px;margin-bottom:15px}
+.contact-box p{color:var(--muted)}
+footer{
+ border-top:1px solid #ffffff15;
+ text-align:center;padding:28px;color:var(--muted);
+ font-size:12px;
+}
+@media(max-width:750px){
+ header{padding:16px 6%}
+ .menu{display:block}
+ nav{
+  display:none;position:absolute;top:65px;left:0;
+  width:100%;padding:22px;background:#111a2b;
+  flex-direction:column;gap:18px;
+ }
+ nav.open{display:flex}
+ .hero{padding:75px 7%;flex-direction:column;text-align:center}
+ .hero-art{width:220px;height:260px}
+ .hero-art strong{font-size:60px}
+ .buttons{justify-content:center}
+ section{padding:65px 7%}
+ .about-grid{grid-template-columns:1fr}
+ .skills-grid,.project-grid{grid-template-columns:1fr}
+ .section-head h2{font-size:32px}
+ .contact-box{padding:30px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <a href="#home" class="logo">RASIDUL<span>.</span></a>
+ <button class="menu" onclick="toggleMenu()">☰</button>
+ <nav id="nav">
+  <a href="#home" onclick="closeMenu()">HOME</a>
+  <a href="#about" onclick="closeMenu()">ABOUT</a>
+  <a href="#skills" onclick="closeMenu()">SKILLS</a>
+  <a href="#projects" onclick="closeMenu()">PROJECTS</a>
+  <a href="#contact" onclick="closeMenu()">CONTACT</a>
+ </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div>
+  <div class="eyebrow">PERSONAL PORTFOLIO</div>
+  <h1>I'm <span>Rasidul<br>Islam.</span></h1>
+  <p>A simple person with big dreams. I believe in discipline, honesty, dedication and creating a meaningful future.</p>
+  <div class="buttons">
+   <a href="#about" class="btn">DISCOVER MORE ↗</a>
+   <a href="#contact" class="btn outline">CONTACT ME</a>
+  </div>
+ </div>
+ <div class="hero-art"><strong>RI</strong></div>
+</section>
+
+<section id="about">
+ <div class="section-head">
+  <small>01 / INTRODUCTION</small>
+  <h2>About <span>Me.</span></h2>
+ </div>
+ <div class="about-grid">
+  <div class="about-text">
+   <p>My name is Rasidul Islam. I am from Kapasia, Gazipur, Bangladesh.</p>
+   <br>
+   <p>I believe that a simple lifestyle, discipline and dedication can create a meaningful life. I always try to learn, grow and improve myself.</p>
+  </div>
+  <div class="info">
+   <div><b>Full Name:</b> Rasidul Islam</div>
+   <div><b>Location:</b> Kapasia, Gazipur, Bangladesh</div>
+   <div><b>Profession:</b> Personal Profile</div>
+   <div><b>Personality:</b> Simple & Disciplined</div>
+  </div>
+ </div>
+</section>
+
+<section id="skills">
+ <div class="section-head">
+  <small>02 / WHAT DEFINES ME</small>
+  <h2>My <span>Skills & Values.</span></h2>
+ </div>
+ <div class="skills-grid">
+  <div class="skill"><h3>01. Discipline</h3><p>Being consistent and responsible in everyday life.</p></div>
+  <div class="skill"><h3>02. Leadership</h3><p>Taking responsibility and supporting teamwork.</p></div>
+  <div class="skill"><h3>03. Dedication</h3><p>Giving my best effort to every responsibility.</p></div>
+  <div class="skill"><h3>04. Honesty</h3><p>Believing in integrity and respect.</p></div>
+  <div class="skill"><h3>05. Teamwork</h3><p>Working together towards shared goals.</p></div>
+  <div class="skill"><h3>06. Learning</h3><p>Always seeking opportunities to grow.</p></div>
+ </div>
+</section>
+
+<section id="projects">
+ <div class="section-head">
+  <small>03 / MY JOURNEY</small>
+  <h2>My <span>Portfolio.</span></h2>
+ </div>
+ <div class="project-grid">
+  <div class="project"><div class="project-number">01</div><h3>My Journey</h3><p>My experiences, personal growth and life journey.</p></div>
+  <div class="project"><div class="project-number">02</div><h3>My Lifestyle</h3><p>Simple living, positive thinking and meaningful goals.</p></div>
+  <div class="project"><div class="project-number">03</div><h3>My Vision</h3><p>Building a better future through dedication and hard work.</p></div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="contact-box">
+  <div class="eyebrow">04 / GET IN TOUCH</div>
+  <h2>Let's Connect.</h2>
+  <p>Thank you for visiting my personal portfolio.</p>
+  <a href="mailto:your-email@example.com" class="btn">SEND AN EMAIL ↗</a>
+ </div>
+</section>
+</main>
+
+<footer>
+ © <span id="year"></span> Rasidul Islam. All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+function toggleMenu(){
+ document.getElementById("nav").classList.toggle("open");
+}
+function closeMenu(){
+ document.getElementById("nav").classList.remove("open");
+}
+</script>
+</body>
+</html>
